@@ -22,23 +22,5 @@ Point to http://localhost:3000
 
 # DEVELOPMENT
 
-## React Bootstrap Installation 
-Use a React Bootstrap project for the navbar
-npm install bootstrap react-bootstrap --save-dev
-from
-https://www.thinkful.com/projects/react-bootstrap-456/
-
-Note future Bootstrap bits to include
-//Tabs, ButtonToolbar, 
-//Button, Table, ButtonGroup, Row, Col, Grid, Panel, FormGroup, FormControl
-
-# Development Pull Requests
-
-## 1 Add Navbar
-Added default navbar, no styling or content changes from default
-
-## 2 add-a-week-card
-Add basic ability to add a 'card' the week long HTML item that will one day slide etc
-
 
 
