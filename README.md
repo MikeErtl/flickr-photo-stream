@@ -22,5 +22,10 @@ Point to http://localhost:3000
 
 # DEVELOPMENT
 
+## React Bootstrap Installation 
+Use a React Bootstrap project for the navbar
+npm install bootstrap react-bootstrap --save-dev
+from
+https://www.thinkful.com/projects/react-bootstrap-456/
 
 
