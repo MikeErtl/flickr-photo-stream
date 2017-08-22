@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import PhotoCardInfo from './photocardinfo'; 
+//import PhotoCardInfo from './photocardinfo'; 
 
 /**
  * A visual element containing a Flickr user's photo and associated metadata. Consists of: 
@@ -26,7 +26,7 @@ PhotoCard.propTypes = {
     flickrAuthorUrl: PropTypes.string,
     descriptionHtml: PropTypes.string,
     tags: PropTypes.string,
-    photoCardInfo: PropTypes.instanceOf(PhotoCardInfo)
+    //photoCardInfo: PropTypes.instanceOf(PhotoCardInfo)
 };
 
 export default PhotoCard;
