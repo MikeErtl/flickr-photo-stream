@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 import PhotoCard from './photocard.jsx';
 
+import { Provider } from 'react-redux'; //MIKE temp get store via Provider to work
+import store from '../state/store'; // MIKE temp
+
 import './browse.css';
 
 
@@ -17,12 +20,14 @@ class Browse extends Component {
 
     render() {
         return (
-            <div className="browse">
-                Mike Browser Screen
-                <PhotoCard 
-                    title = "mike01"
-                />
-            </div>
+            <Provider store={ store }>
+                <div className="browse">
+                    Mike Browser Screen
+                    <PhotoCard 
+                        title = "mike01"
+                    />
+                </div>
+            </Provider>
         );
     }
 

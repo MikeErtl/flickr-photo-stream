@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
 
 //import PhotoCardInfo from './photocardinfo'; 
 
@@ -29,4 +30,23 @@ PhotoCard.propTypes = {
     //photoCardInfo: PropTypes.instanceOf(PhotoCardInfo)
 };
 
-export default PhotoCard;
+const mapStateToProps = state => {
+  return {
+    title : state.title
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadMockFeed : () => dispatch({
+      type : 'LOAD_MOCK_PHOTOCARD'
+    })
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PhotoCard)
+
+//export default PhotoCard;

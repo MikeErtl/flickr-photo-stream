@@ -7,6 +7,8 @@
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
 
 export const LOAD_LIVE_FEED = 'LOAD_LIVE_FEED'
+export const LOAD_MOCK_FEED = 'LOAD_MOCK_FEED'
+export const LOAD_MOCK_PHOTOCARD = 'LOAD_MOCK_PHOTOCARD'
 
 /*
  * other constants
@@ -36,4 +38,12 @@ export function setVisibilityFilter(filter) {
 
 export function loadLiveFeed () {
     return { type: LOAD_LIVE_FEED }
+}
+
+export function loadMockFeed () {
+    return { type: LOAD_MOCK_FEED }
+}
+
+export function loadMockPhotocard () {
+    return { type: LOAD_MOCK_PHOTOCARD }
 }
