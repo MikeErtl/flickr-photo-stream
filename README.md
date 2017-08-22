@@ -20,12 +20,40 @@ was renamed `create-react-app.md`
 `npm start`
 Point to http://localhost:3000
 
-# DEVELOPMENT
+# DEVELOPMENT BRANCHES AND FLOW
 
-## React Bootstrap Installation 
-Use a React Bootstrap project for the navbar
-npm install bootstrap react-bootstrap --save-dev
-from
+The following is a list of branch names (this is a quick one person project without JIRA ticket numbers).
+Each branch is designed to be a typical pull request sized task, not too onorous to review and not too small. 
+Files are lower case for greater compatibility. (leaving README.md as is)
+
+## 1) add-bootstrap
+React Bootstrap Installation: 
+Use a React Bootstrap project for the navbar described here:
 https://www.thinkful.com/projects/react-bootstrap-456/
+
+## 2) add-card
+Add a single 'PhotoCard' containing photo and metadata.
+
+Install react redux to manage tate in a redux store.
+https://github.com/reactjs/react-redux
+
+
+
+# TODOS AND NOTES 
+
+## Getting Data:
+Install a promise based HTTP Client 'axios' which has the same API for requests as JQuery but does
+not have any DOM manipulation which would be bad in a React app. See
+https://github.com/mzabriskie/axios
+
+
+## Description is injected HTML
+Sanitize the html using the sanitize-html module, and render it using dangerouslySetInnerHTML
+
+## Lazy Loading
+https://www.npmjs.com/package/react-lazy-load
+
+
+        
 
 
