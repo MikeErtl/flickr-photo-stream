@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
-//import store from './state/store'; //MIKE see browse.js 
-//import { Provider } from 'react-redux'
+import store from './state/store'; //MIKE see browse.js 
+import { Provider } from 'react-redux'
 
 import BROWSECTRL from './containers/browsecontroller';
 
@@ -19,10 +19,12 @@ class App extends Component {
 
   render() {
     return (
+        <Provider store={ store }>
         <div className="App">
             <NavBar />
             <div id="screens"></div>
         </div>
+        </Provider>
     );
   }
 }

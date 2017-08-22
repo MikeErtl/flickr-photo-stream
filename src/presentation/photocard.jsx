@@ -44,9 +44,9 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PhotoCard)
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(PhotoCard)
 
-//export default PhotoCard;
+export default PhotoCard;

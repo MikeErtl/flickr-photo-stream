@@ -23,7 +23,7 @@ const BROWSECTRL = {};
     const displayLiveFeed = function () {
 
         //store.dispatch(loadLiveFeed());
-        console.log("MIKE dispatched LOAD_LIVE_FEED..."); console.log(store.getState());
+        //console.log("MIKE dispatched LOAD_LIVE_FEED..."); console.log(store.getState());
         
         let domSlot = document.getElementById('screens');
         let browseScreen = React.createElement(Browse);
