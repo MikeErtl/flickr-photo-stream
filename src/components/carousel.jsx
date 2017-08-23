@@ -9,18 +9,19 @@ import './carousel.css';
  * Carousel of Photocards. This Displays a list of Photocards which can be swiped left and right
  * 
  */
+
 const Carousel = ({ photocards, onTitleClick, onAuthorClick }) => (
-  <ul>
-    {
-        photocards.map(photocard =>
-            <Photocard
-                key={photocard.id}
-                {...photocard}
-                onClick={() => onTitleClick(photocard.id)}
-            />
-        )
-    }
-  </ul>
+    <ul className = "carousel">
+        {
+            photocards.map(photocard =>
+                <Photocard
+                    key={photocard.id}
+                    {...photocard}
+                    onClick={() => onTitleClick(photocard.id)}
+                />
+            )
+        }
+    </ul>
 );
 
 Carousel.propTypes = {

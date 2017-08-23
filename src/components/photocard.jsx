@@ -7,11 +7,11 @@ import PropTypes from 'prop-types';
  *  description,  tags
  */
 const Photocard = ({ 
-    title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, descriptionHtml, tags, photoCardInfo}) => {
+    id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, descriptionHtml, tags, photoCardInfo}) => {
     return (
         <div className="photo-card">
             - In PhotoCard -
-            Title: {title}
+            ID: {id} Title: {title}
         </div>
     );                    
 };

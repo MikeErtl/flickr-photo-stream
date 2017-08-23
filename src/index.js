@@ -1,12 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux'
-import './index.css';
-import App from './components/App';
+import reducer from './reducers';
+import { createStore } from 'redux';
+import { connect } from 'react-redux'
+
 import registerServiceWorker from './registerServiceWorker';
+import App from './components/App';
+import { loadMockFeed } from './actions/actions'
+
+import './index.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import reducer from './state/reducers'
-import { createStore } from 'redux'
+
 
 const store = createStore(reducer);
 
@@ -16,5 +21,8 @@ render(
     </Provider>, 
     document.getElementById('root')
 );
+
+//dispatch(setVisibilityFilter('SHOW_ALL'))
+//dispatch(loadMockFeed())
 
 registerServiceWorker();
