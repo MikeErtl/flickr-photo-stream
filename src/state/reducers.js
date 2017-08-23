@@ -41,12 +41,12 @@ function visibilityFilter(state = SHOW_ALL, action) {
 //   }
 // }
 
-const appReducers = combineReducers({
+const reducer = combineReducers({
   visibilityFilter
 //   todos
 })
 
-export default appReducers
+export default reducer
 
 
 

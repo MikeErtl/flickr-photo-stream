@@ -10,7 +10,7 @@ import {
 } from '../state/actions'
 
 
-import Browse from '../presentation/browse.jsx';
+import Browse from '../components/browse.jsx';
 
 
 const BROWSECTRL = {};

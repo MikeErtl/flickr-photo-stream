@@ -23,7 +23,7 @@ const Browse = () => {
     );    
 }
 
-
+export default Browse;
 
 // class Browse extends Component {
 //     constructor(props) {
@@ -58,11 +58,11 @@ const Browse = () => {
 // Browse.defaultProps = {
 // };
 
-const mapStateToProps = state => {
-  return {
-    title : state.title
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     title : state.title
+//   }
+// }
 
 // const mapDispatchToProps = dispatch => {
 //   return {
@@ -72,7 +72,7 @@ const mapStateToProps = state => {
 //   }
 // }
 
-console.log("MIKE before export in Browse store:"); console.log(store)
+//console.log("MIKE before export in Browse store:"); console.log(store)
 
 // export default connect(
 //   mapStateToProps
@@ -80,4 +80,4 @@ console.log("MIKE before export in Browse store:"); console.log(store)
 // )(Browse)
 
 
-export default Browse;
+
