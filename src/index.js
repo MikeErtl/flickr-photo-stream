@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 
 import registerServiceWorker from './registerServiceWorker';
 import App from './components/App';
+import { loadFeed } from './actions/feedactions';
 
 import './index.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -17,6 +18,9 @@ const store = createStore(
     reducer,
     applyMiddleware(thunk)
 );
+
+store.dispatch(loadFeed());
+
 
 render(
     <Provider store={ store }>

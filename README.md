@@ -46,6 +46,9 @@ https://www.npmjs.com/package/jsonp
 For asynchronous redux actions (getting a feed) use thunk middleware:
 https://www.npmjs.com/package/redux-thunk
 
+For description see 
+http://www.thegreatcodeadventure.com/react-redux-tutorial-part-iii-async-redux/
+
 
 
 

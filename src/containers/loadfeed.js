@@ -8,9 +8,9 @@ import { loadMockFeed, requestPosts, receivedPostsSuccess } from '../actions/act
  */
 let LoadFeed = ({ dispatch }) => {
 
-    console.log("MIKE-A1 CONTAINER:LoadFeed: dispatch(fetchPostsRequest)")
-    dispatch(loadMockFeed());
-    dispatch(requestPosts());
+    //console.log("MIKE-A1 CONTAINER:LoadFeed: dispatch(fetchPostsRequest)")
+    //dispatch(loadMockFeed());
+    //dispatch(requestPosts());
 
     return null;
 }

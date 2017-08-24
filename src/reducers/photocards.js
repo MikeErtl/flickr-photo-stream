@@ -56,14 +56,14 @@ const photocards = (state = [], action) => {
 
         case 'REQUEST_POSTS':
         console.log("MIKE-A3 REDUCERS-photocards switch REQUEST_POSTS")
-        // requestPosts().then((json) => {
-        //     console.log("MIKE-05"); console.log(json)
-        //     dispatch(receivePostsSuccess(json)); 
-        // });
+        requestPosts().then((json) => {
+            console.log("MIKE-05"); console.log(json)
+            //dispatch(receivePostsSuccess(json)); 
+        });
         
         //return [{id: 1, title: "Mock1"}, {id: 2, title: "Mock2"} ];
 
-        //return requestPosts();
+        //requestPosts();
 
         // requestPosts().then((feed) => {
         //     console.log("MIKE-05"); console.log(feed);
