@@ -1,35 +1,51 @@
-
 import jsonp from 'jsonp';
+import { connect } from 'react-redux';
 
 const photocards = (state = [], action) => {
 
-    const appendFlickrFeed = () => {
+    const requestPosts = () => {
+        console.log("MIKE-A4 requestPosts")
 
         const flickrFeedApi = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json';
-        let newState = [];
+        //let newState = [ ...state ];
+        let flickrFeed = [];
 
-        let cancelRequest = jsonp(
-            flickrFeedApi,
-            { name: 'jsonFlickrFeed' },
-            (err, json) => {
-                if (err) {
-                    alert("Flickr API returned error: " + err.message);
+        var requestPromise = new Promise(function(resolve, reject) {
+            let cancelRequest = jsonp(
+                flickrFeedApi,
+                { name: 'jsonFlickrFeed' },
+                (err, json) => {
+                    if (err) {
+                        reject(Error("Flickr API returned error: " + err.message));
+                    }
+                    else {
+                        flickrFeed = json.items.map((item)=>{
+                            return {
+                                id: item.link, // No ID in Flickr item but link seems unique
+                                title: item.title
+                            }
+                        });
+                        console.log("MIKE-A4a fetchPostsRequest newFeed="); console.log(flickrFeed);
+                        resolve(flickrFeed);
+                    }
                 }
-                else {
-                    console.log("MIKE json.items "); console.log(json.items);
-                    newState = [ ...state, json.items.map( (flickrItem) => {
-                        return {
-                            id: flickrItem.link, // No ID in Flickr item but link seems unique
-                            title: flickrItem.title
-                        }
-                    })];
-                }
-            }
-        );
-
+            );
+        });
         //newState = [...state, {id: 10, title: "Flickr10"}, {id: 11, title: "Flickr11"} ];
-        console.log ("MIKE newState="); console.log("newState")
-        return newState;
+        //console.log ("MIKE newState="); console.log("newState")
+
+        // return (dispatch) => {
+        //     console.log("MIKE-A4b")
+        //     return requestPromise.then(
+        //         flickrFeed => dispatch(receivePostsSuccess(flickrFeed))
+        //     );
+        // };
+
+        return requestPromise;
+    }
+
+    const receivePostsSuccess = (flickrFeed) => {
+        console.log("MIKE-A5 receivePostsSuccess: "); console.log(flickrFeed)
     }
 
     switch (action.type) {
@@ -38,8 +54,26 @@ const photocards = (state = [], action) => {
         console.log("MIKE in reducers/photocards switch statement for LOAD_MOCK_FEED state="); console.log(state);
         return [{id: 1, title: "Mock1"}, {id: 2, title: "Mock2"} ];
 
-        case 'LOAD_FLICKR_FEED':
-        return appendFlickrFeed();
+        case 'REQUEST_POSTS':
+        console.log("MIKE-A3 REDUCERS-photocards switch REQUEST_POSTS")
+        // requestPosts().then((json) => {
+        //     console.log("MIKE-05"); console.log(json)
+        //     dispatch(receivePostsSuccess(json)); 
+        // });
+        
+        //return [{id: 1, title: "Mock1"}, {id: 2, title: "Mock2"} ];
+
+        //return requestPosts();
+
+        // requestPosts().then((feed) => {
+        //     console.log("MIKE-05"); console.log(feed);
+        //     dispatch(receivePostsSuccess(feed));
+        // })
+        return state;
+
+
+        case 'RECEIVE_POSTS_SUCCESS':
+        return receivePostsSuccess();
 
     default:
         return state;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { loadMockFeed, loadFlickrFeed } from '../actions/actions';
+import { loadMockFeed, requestPosts, receivedPostsSuccess } from '../actions/actions';
 
 /**
  * Loads photocards from the Flickr API
@@ -8,9 +8,9 @@ import { loadMockFeed, loadFlickrFeed } from '../actions/actions';
  */
 let LoadFeed = ({ dispatch }) => {
 
-    console.log("MIKE in LoadFeed dispatch(loadMockFeed) then (loadFlickrFeed)")
+    console.log("MIKE-A1 CONTAINER:LoadFeed: dispatch(fetchPostsRequest)")
     dispatch(loadMockFeed());
-    dispatch(loadFlickrFeed());
+    dispatch(requestPosts());
 
     return null;
 }

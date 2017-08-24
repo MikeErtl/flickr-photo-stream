@@ -43,6 +43,9 @@ For this install jsonp.
 See:
 https://www.npmjs.com/package/jsonp
 
+For asynchronous redux actions (getting a feed) use thunk middleware:
+https://www.npmjs.com/package/redux-thunk
+
 
 
 
