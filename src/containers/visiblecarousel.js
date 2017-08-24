@@ -1,6 +1,4 @@
 import { connect } from 'react-redux';
-//import { toggleTodo } from '../actions'
-import { loadMockFeed } from '../actions/actions'
 import Carousel from '../components/carousel';
 
 const getVisibleCarousel = ( photocards, filter) => {
@@ -18,14 +16,11 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  //onTodoClick: toggleTodo
-    //onLoadMockFeed: loadMockFeed
 }
 
 const VisibleCarousel = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Carousel)
-
 
 export default VisibleCarousel

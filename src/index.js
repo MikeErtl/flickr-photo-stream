@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 
 import registerServiceWorker from './registerServiceWorker';
 import App from './components/App';
-import { loadMockFeed } from './actions/actions'
 
 import './index.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -22,7 +21,5 @@ render(
     document.getElementById('root')
 );
 
-//dispatch(setVisibilityFilter('SHOW_ALL'))
-//dispatch(loadMockFeed())
 
 registerServiceWorker();

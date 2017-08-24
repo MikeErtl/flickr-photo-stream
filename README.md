@@ -20,11 +20,7 @@ was renamed `create-react-app.md`
 `npm start`
 Point to http://localhost:3000
 
-# DEVELOPMENT BRANCHES AND FLOW
-
-The following is a list of branch names (this is a quick one person project without JIRA ticket numbers).
-Each branch is designed to be a typical pull request sized task, not too onorous to review and not too small. 
-Files are lower case for greater compatibility. (leaving README.md as is)
+# DEVELOPMENT BRANCHES
 
 ## 1) add-bootstrap
 React Bootstrap Installation: 
@@ -32,9 +28,14 @@ Use a React Bootstrap project for the navbar described here:
 https://www.thinkful.com/projects/react-bootstrap-456/
 
 ## 2) add-card
-Add a single 'PhotoCard' containing photo and metadata.
+Add code to display a simplified no-design carousel of photo data (title for now)  
 
-Install react redux to manage tate in a redux store.
+Install react redux to manage state in a redux store. This is the preferred way to use React,
+in conjuction with Redux so that there is one master place for State. The components should therefore
+be stateless and get state by using 'connect' to access the store. 
+All components in the app are connected to the store since <App> is wrapped in a <Provider>.
+This provider maps component properties with the state.
+See:
 https://github.com/reactjs/react-redux
 
 
