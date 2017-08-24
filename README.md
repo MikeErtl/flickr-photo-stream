@@ -38,18 +38,15 @@ This provider maps component properties with the state.
 See:
 https://github.com/reactjs/react-redux
 
+The Flickr Api requires a JSONP implementation to get round cross origin issues.
+For this install jsonp. 
+See:
+https://www.npmjs.com/package/jsonp
+
+
 
 
 # TODOS AND NOTES 
-
-## Getting Data:
-Install a promise based HTTP Client 'axios' which has the same API for requests as JQuery but does
-not have any DOM manipulation which would be bad in a React app. See
-https://github.com/mzabriskie/axios
-
-
-## Description is injected HTML
-Sanitize the html using the sanitize-html module, and render it using dangerouslySetInnerHTML
 
 ## Lazy Loading
 https://www.npmjs.com/package/react-lazy-load

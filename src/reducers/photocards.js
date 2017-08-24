@@ -1,26 +1,34 @@
 
+import jsonp from 'jsonp';
+
 const photocards = (state = [], action) => {
-
-
 
     const appendFlickrFeed = () => {
 
-        //const flickrFeedApi = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json';
-        // var xhr = new XMLHttpRequest();
-        // xhr.open('GET', flickrFeedApi);
-        // xhr.onload = function() {
-        //     if (xhr.status === 200) {
-        //         alert('good status 200 ' + xhr.responseText);
-        //     }
-        //     else {
-        //         alert('Request failed.  Returned status of ' + xhr.status);
-        //     }
-        // };
-        // xhr.send();
+        const flickrFeedApi = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json';
+        let newState = [];
 
-        console.log("MIKE call createCrossDomainRequest")
+        let cancelRequest = jsonp(
+            flickrFeedApi,
+            { name: 'jsonFlickrFeed' },
+            (err, json) => {
+                if (err) {
+                    alert("Flickr API returned error: " + err.message);
+                }
+                else {
+                    console.log("MIKE json.items "); console.log(json.items);
+                    newState = [ ...state, json.items.map( (flickrItem) => {
+                        return {
+                            id: flickrItem.link, // No ID in Flickr item but link seems unique
+                            title: flickrItem.title
+                        }
+                    })];
+                }
+            }
+        );
 
-        let newState = [...state, {id: 10, title: "Flickr10"}, {id: 11, title: "Flickr11"} ];
+        //newState = [...state, {id: 10, title: "Flickr10"}, {id: 11, title: "Flickr11"} ];
+        console.log ("MIKE newState="); console.log("newState")
         return newState;
     }
 
