@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux'
-//import oldphotocards from './OLDphotocards'
 import photocards from './photocards';
 //import visibilityFilter from './visibilityfilter'
 

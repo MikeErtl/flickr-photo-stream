@@ -20,6 +20,20 @@ was renamed `create-react-app.md`
 `npm start`
 Point to http://localhost:3000
 
+
+# CODE DESCRIPTION
+Used lowercase for filenames (I have not renamed all from the boilerplate original) as this makes it compatible with 
+all operating systems and removes git problems when cases are changed etc.
+
+Tried to demonstrate best practice React code, redux gives the app a master state so all the components can be stateless,
+while redux-thunk allows for async actions such as getting results from Flickr API.
+
+JSONP had to reluctantly be used as the headers from the Flickr server were not set to allow cross domain access, at least not
+in the logged out with no ID public access mode.
+
+Lazy loading was used for speed and usability.
+  
+
 # DEVELOPMENT BRANCHES
 
 ## 1) add-bootstrap
@@ -28,7 +42,7 @@ Use a React Bootstrap project for the navbar described here:
 https://www.thinkful.com/projects/react-bootstrap-456/
 
 ## 2) add-card
-Add code to display a simplified no-design carousel of photo data (title for now)  
+Add code to display a simplified no-design carousel of photo data (title and picture for now)  
 
 Install react redux to manage state in a redux store. This is the preferred way to use React,
 in conjuction with Redux so that there is one master place for State. The components should therefore
@@ -43,12 +57,11 @@ For this install jsonp.
 See:
 https://www.npmjs.com/package/jsonp
 
-For asynchronous redux actions (getting a feed) use thunk middleware:
+For asynchronous redux actions (getting a feed) use thunk middleware. See
 https://www.npmjs.com/package/redux-thunk
 
 For description see 
 http://www.thegreatcodeadventure.com/react-redux-tutorial-part-iii-async-redux/
-
 
 
 
