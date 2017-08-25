@@ -9,7 +9,6 @@ class CarouselPage extends React.Component {
 
     render() {
         const photocards = this.props.photocards;
-        console.log("render in CarouselPage this.props:"); console.log(this.props)
         return(
             <Carousel photocards={ photocards } />
         )
@@ -17,7 +16,6 @@ class CarouselPage extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    console.log("MIKE mapStateToProps state,ownProps"); console.log(state); console.log(ownProps);
     if (state.photocards){
         return { photocards: state.photocards }
     }

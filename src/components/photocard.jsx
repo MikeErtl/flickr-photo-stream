@@ -15,11 +15,17 @@ const Photocard = ({
         <div className="photocard">
             <div className="photocard__picture-frame">
                  <LazyLoad height={"100%"}> 
-                    <img className="photocard__picture" src={ thumbnail } />
+                    <img className="photocard__picture" src={ thumbnail } alt = "" />
                  </LazyLoad> 
             </div>
             <div className="photocard__title-author">
-                { title } by { author }
+                <a href={ flickrPhotoUrl } >
+                    { title } 
+                </a>
+                &nbsp;  by &nbsp;   
+                <a href={ flickrAuthorUrl }>
+                    { author } 
+                </a>
             </div>
         </div>
     );                    

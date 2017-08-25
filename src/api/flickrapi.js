@@ -16,15 +16,22 @@ class FlickrApi {
                     }
                     else {
                         flickrFeed = json.items.map((item)=>{
-                            let author = item.author.match( /"(.*?)"/ )[1];
+                            /* Find name inside "" */
+                            let author = item.author.match( /"(.*?)"/ )[1]; 
+                            /* Remove last folder of link */ 
+                            let tokens = item.link.split('/');
+                            tokens.splice(-2,1); 
+                            let authorUrl = tokens.join('/');
+                            
                             return {
                                 id: item.link, // No ID in Flickr item but link seems unique
                                 title: item.title,
                                 thumbnail: item.media.m,
-                                author: author
+                                author: author,
+                                flickrPhotoUrl: item.link,
+                                flickrAuthorUrl: authorUrl
                             }
                         });
-                        // console.log("MIKE-A4a fetchPostsRequest newFeed="); console.log(flickrFeed);
                         resolve(flickrFeed);
                     }
                 }
