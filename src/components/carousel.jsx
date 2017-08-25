@@ -13,13 +13,14 @@ import './carousel.css';
 const Carousel = ({ photocards, onTitleClick, onAuthorClick }) => (
     <ul className = "carousel">
         {
+            photocards ? 
             photocards.map(photocard =>
                 <Photocard
                     key={photocard.id}
                     {...photocard}
                     onClick={() => onTitleClick(photocard.id)}
                 />
-            )
+            ) : null
         }
     </ul>
 );
