@@ -34,14 +34,14 @@ in the logged out with no ID public access mode.
 Lazy loading was used for speed and usability.
   
 
-# DEVELOPMENT BRANCHES
+# DEVELOPMENT DESCRIPTION
 
-## 1) add-bootstrap
+## 1) Add Botstrap
 React Bootstrap Installation: 
 Use a React Bootstrap project for the navbar described here:
 https://www.thinkful.com/projects/react-bootstrap-456/
 
-## 2) add-card
+## 2) Add Simple Style Free List
 Add code to display a simplified no-design carousel of photo data (title and picture for now)  
 
 Install react redux to manage state in a redux store. This is the preferred way to use React,
