@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
-//import photocards from './photocards'
-import feedReducer from './feedreducer';
+//import oldphotocards from './OLDphotocards'
+import photocards from './photocards';
 //import visibilityFilter from './visibilityfilter'
 
 const rootReducer = combineReducers({
-  //photocards,
-  feedReducer,
+  //oldphotocards,
+  photocards,
   //visibilityFilter
 })
 
