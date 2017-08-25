@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';  
 
-import { loadFeed } from '../actions/feedactions';
+import { appendFeed } from '../actions/feedactions';
 import store from '../store/store';
 
 import Photocard from './photocard.jsx';
@@ -26,11 +26,9 @@ class Carousel extends React.Component {
     }
 
     listenScrollEvent(e) {
-        //console.log("Scroll event detected: " + e.target.scrollLeft + " out of " + e.target.scrollWidth + " and " + e.target.clientWidth);
         if ( e.target.scrollLeft >= (e.target.scrollWidth - e.target.clientWidth)) {
             console.log("BANG!");
-            console.log(e);
-            store.dispatch(loadFeed());
+            store.dispatch(appendFeed());
         }
     }
 
@@ -57,10 +55,6 @@ class Carousel extends React.Component {
     }
 };
 
-// function mapStateToProps(state, ownProps) {
-//         return { scrolledToEnd: state.scrolledToEnd }
-// } 
-
 Carousel.propTypes = {
     photocards: PropTypes.arrayOf(PropTypes.shape({//TODO: make all required
         id: PropTypes.string.isRequired,
@@ -78,4 +72,3 @@ Carousel.propTypes = {
 };
 
 export default Carousel;
-//export default connect(mapStateToProps)(Carousel);  

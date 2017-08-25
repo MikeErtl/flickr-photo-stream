@@ -1,11 +1,8 @@
 import { combineReducers } from 'redux'
 import photocards from './photocards';
-//import visibilityFilter from './visibilityfilter'
 
 const rootReducer = combineReducers({
-  //oldphotocards,
-  photocards,
-  //visibilityFilter
+  photocards // nothing to combine yet... 
 })
 
 export default rootReducer

@@ -11,7 +11,6 @@ class CarouselPage extends React.Component {
      
     render() {
         const photocards = this.props.photocards;
-        //console.log("render this:"); console.log(this.scrolledToEnd)
         return(
             <Carousel 
                 photocards={ photocards } 

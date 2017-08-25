@@ -75,3 +75,8 @@ For infinite scroll, need to know when the end of a scroll is reached.
 Need a ref on a react dom node but Stateless function components cannot have refs, so
 convert carousel to stateful, reluctantly.
 
+TODO Stop duplicates:
+var lookup = {};
+for (var i = 0, len = array.length; i < len; i++) {
+    lookup[array[i].id] = array[i];
+}
