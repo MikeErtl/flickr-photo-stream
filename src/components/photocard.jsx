@@ -19,7 +19,7 @@ const Photocard = ({
                  </LazyLoad> 
             </div>
             <div className="photocard__title-author">
-                {title}
+                { title } by { author }
             </div>
         </div>
     );                    

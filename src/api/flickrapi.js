@@ -16,10 +16,12 @@ class FlickrApi {
                     }
                     else {
                         flickrFeed = json.items.map((item)=>{
+                            let author = item.author.match( /"(.*?)"/ )[1];
                             return {
                                 id: item.link, // No ID in Flickr item but link seems unique
                                 title: item.title,
-                                thumbnail: item.media.m
+                                thumbnail: item.media.m,
+                                author: author
                             }
                         });
                         // console.log("MIKE-A4a fetchPostsRequest newFeed="); console.log(flickrFeed);
