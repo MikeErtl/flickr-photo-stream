@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LazyLoad from 'react-lazy-load';
+import {
+    Col,
+    Row
+} from 'react-bootstrap';
+
 
 import Photocard from './photocard.jsx';
 
+//import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './carousel.css';
 
 /**
@@ -11,18 +18,26 @@ import './carousel.css';
  */
 
 const Carousel = ({ photocards, onTitleClick, onAuthorClick }) => (
-    <ul className = "carousel">
-        {
-            photocards ? 
-            photocards.map(photocard =>
-                <Photocard
-                    key={photocard.id}
-                    {...photocard}
-                    onClick={() => onTitleClick(photocard.id)}
-                />
-            ) : null
-        }
-    </ul>
+
+    <span>
+
+        <h1> Live Feed </h1> 
+        <Row className="photos-carousel">
+             <div className="photos-carousel__inner"> 
+                {
+                    photocards ? 
+                    photocards.map(photocard =>
+                        <Photocard
+                            key={photocard.id}
+                            {...photocard}
+                            onClick={() => onTitleClick(photocard.id)}
+                        />
+                    ) : null
+                }
+             </div> 
+        </Row>    
+
+    </span>
 );
 
 Carousel.propTypes = {

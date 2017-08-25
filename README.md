@@ -5,7 +5,7 @@ https://www.flickr.com/services/feeds/docs/photos_public/
 
 This readme describes the development of the app.
 
-# ENVIRONMENT
+# Environment
 
 The project was set up as a React App with instructions from here:
 Use create-react-app from:
@@ -14,14 +14,14 @@ https://github.com/facebookincubator/create-react-app
 This generates a README.md with instructions for building, running and testing the app. This 
 was renamed `create-react-app.md`
 
-# INSTRUCTIONS
+# Instructions
 
 ## Run the development env with
 `npm start`
 Point to http://localhost:3000
 
 
-# CODE DESCRIPTION
+# Code
 Used lowercase for filenames (I have not renamed all from the boilerplate original) as this makes it compatible with 
 all operating systems and removes git problems when cases are changed etc.
 
@@ -32,9 +32,12 @@ JSONP had to reluctantly be used as the headers from the Flickr server were not 
 in the logged out with no ID public access mode.
 
 Lazy loading was used for speed and usability.
+
+Straight CSS was used as the app is so small but using BEM (Block Element Modifier) to improve structure of CSS,
+in the format B__E_M 
   
 
-# DEVELOPMENT DESCRIPTION
+# Development
 
 ## 1) Add Botstrap
 React Bootstrap Installation: 
@@ -63,13 +66,34 @@ https://www.npmjs.com/package/redux-thunk
 For description see 
 http://www.thegreatcodeadventure.com/react-redux-tutorial-part-iii-async-redux/
 
-
-
-# TODOS AND NOTES 
-
-## Lazy Loading
+For lazy loading use this react library:
 https://www.npmjs.com/package/react-lazy-load
 
+
+
+    <div>
+        Scroll to load images.
+        <div className="filler" />
+        <LazyLoad height={762} offsetVertical={300}>
+            <img src='http://apod.nasa.gov/apod/image/1502/HDR_MVMQ20Feb2015ouellet1024.jpg' />
+        </LazyLoad>
+        <div className="filler" />
+        <LazyLoad height={683} offsetTop={200}>
+            <img src='http://apod.nasa.gov/apod/image/1502/2015_02_20_conj_bourque1024.jpg' />
+        </LazyLoad>
+            <div className="filler" />
+        <LazyLoad height={480} offsetHorizontal={50}>
+            <img src='http://apod.nasa.gov/apod/image/1502/MarsPlume_jaeschke_480.gif' />
+        </LazyLoad>
+            <div className="filler" />
+        <LazyLoad
+            height={720}
+            onContentVisible={() => console.log('look ma I have been lazyloaded!')}
+        >
+            <img src='http://apod.nasa.gov/apod/image/1502/ToadSky_Lane_1080_annotated.jpg' />
+        </LazyLoad>
+        <div className="filler" />
+    </div>
 
         
 

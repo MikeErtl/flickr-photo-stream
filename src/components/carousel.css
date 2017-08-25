@@ -1,3 +1,19 @@
-.carousel {
+html,body {
+    height:100%;
+}
+
+/* Carousel height should be most but not all of screen so that user can peep more page stuff below */
+.photos-carousel {
     background-color: wheat;
+    height: 65vh; /* see .photo-card height which is related in order to make the photo-card square-ish */
+     overflow: scroll; 
+    white-space: nowrap;
+}
+
+.photos-carousel__inner {
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

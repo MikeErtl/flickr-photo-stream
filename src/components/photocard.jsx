@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './photocard.css';
+
 /**
  * A visual element containing a Flickr user's photo and associated metadata. Consists of: 
  *  photo, photoTitle (links to photo on Flickr),  author (links to author's Flickr page),
@@ -9,8 +11,10 @@ import PropTypes from 'prop-types';
 const Photocard = ({ 
     id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, descriptionHtml, tags, photoCardInfo}) => {
     return (
-        <div className="photo-card">
-            - In PhotoCard -
+        <div className="photocard">
+            <div className="photocard__picture">
+                hello pic
+            </div>
              Title: {title}
         </div>
     );                    
