@@ -12,8 +12,8 @@ const Photocard = ({
     id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, descriptionHtml, tags, photoCardInfo}) => {
     return (
         <div className="photocard">
-            <div className="photocard__picture">
-                hello pic
+            <div className="photocard__picture-frame">
+                <img className="photocard__picture" src={ thumbnail } />
             </div>
              Title: {title}
         </div>

@@ -9,11 +9,20 @@
     display: inline-block;
 }
 
-.photocard__picture {
+.photocard__picture-frame {
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
     height: 50%;
-    background-color: yellow;
+    /* background-color: black; */
+    zoom: 2; /* Allow a bit of zoom in case the thumbnail is really small */
+}
+
+.photocard__picture {
+    max-height: 100%;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
 }

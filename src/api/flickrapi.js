@@ -18,7 +18,8 @@ class FlickrApi {
                         flickrFeed = json.items.map((item)=>{
                             return {
                                 id: item.link, // No ID in Flickr item but link seems unique
-                                title: item.title
+                                title: item.title,
+                                thumbnail: item.media.m
                             }
                         });
                         // console.log("MIKE-A4a fetchPostsRequest newFeed="); console.log(flickrFeed);
