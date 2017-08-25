@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Photocard from './photocard.jsx';
@@ -27,7 +27,7 @@ const Carousel = ({ photocards, onTitleClick, onAuthorClick }) => (
 
 Carousel.propTypes = {
     photocards: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number.isRequired,
+        id: PropTypes.string.isRequired,
         thumbnail: PropTypes.string,
         title: PropTypes.string.isRequired,
         flickrPhotoUrl: PropTypes.string,

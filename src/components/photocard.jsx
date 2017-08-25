@@ -11,13 +11,13 @@ const Photocard = ({
     return (
         <div className="photo-card">
             - In PhotoCard -
-            ID: {id} Title: {title}
+             Title: {title}
         </div>
     );                    
 };
 
 Photocard.propTypes = {
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     thumbnail: PropTypes.string,
     title: PropTypes.string.isRequired,
     flickrPhotoUrl: PropTypes.string,
