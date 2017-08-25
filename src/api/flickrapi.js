@@ -22,6 +22,7 @@ class FlickrApi {
                             let tokens = item.link.split('/');
                             tokens.splice(-2,1); 
                             let authorUrl = tokens.join('/');
+                            let description = ""; /* Couldn't see anything useful in description */ 
                             
                             return {
                                 id: item.link, // No ID in Flickr item but link seems unique
@@ -29,7 +30,8 @@ class FlickrApi {
                                 thumbnail: item.media.m,
                                 author: author,
                                 flickrPhotoUrl: item.link,
-                                flickrAuthorUrl: authorUrl
+                                flickrAuthorUrl: authorUrl,
+                                description: description
                             }
                         });
                         resolve(flickrFeed);

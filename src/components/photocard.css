@@ -35,3 +35,13 @@
     margin-left:20px;
     margin-right:20px;
 }
+
+.photocard__description {
+    background-color: #e0e0e0;
+    max-width: 100%;
+    height: 0px; /* Couldn't see anything in description was 100px */
+    margin-left:20px;
+    margin-right:20px;
+    white-space: normal;
+    overflow: scroll;
+}

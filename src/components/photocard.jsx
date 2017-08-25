@@ -10,7 +10,7 @@ import './photocard.css';
  *  description,  tags
  */
 const Photocard = ({ 
-    id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, descriptionHtml, tags, photoCardInfo}) => {
+    id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, description, tags, photoCardInfo}) => {
     return (
         <div className="photocard">
             <div className="photocard__picture-frame">
@@ -27,6 +27,9 @@ const Photocard = ({
                     { author } 
                 </a>
             </div>
+            <div className="photocard__description">
+                { description }
+            </div>
         </div>
     );                    
 };
@@ -38,7 +41,7 @@ Photocard.propTypes = {
     flickrPhotoUrl: PropTypes.string,
     author: PropTypes.string,
     flickrAuthorUrl: PropTypes.string,
-    descriptionHtml: PropTypes.string,
+    description: PropTypes.string,
     tags: PropTypes.string,
 };
 

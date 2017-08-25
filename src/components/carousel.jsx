@@ -1,15 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LazyLoad from 'react-lazy-load';
 import {
-    Col,
     Row
 } from 'react-bootstrap';
 
-
 import Photocard from './photocard.jsx';
 
-//import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './carousel.css';
 
 /**
@@ -41,14 +37,14 @@ const Carousel = ({ photocards, onTitleClick, onAuthorClick }) => (
 );
 
 Carousel.propTypes = {
-    photocards: PropTypes.arrayOf(PropTypes.shape({
+    photocards: PropTypes.arrayOf(PropTypes.shape({//TODO: make all required
         id: PropTypes.string.isRequired,
         thumbnail: PropTypes.string,
         title: PropTypes.string.isRequired,
         flickrPhotoUrl: PropTypes.string,
         author: PropTypes.string,
         flickrAuthorUrl: PropTypes.string,
-        descriptionHtml: PropTypes.string,
+        description: PropTypes.string,
         tags: PropTypes.string,
     }).isRequired).isRequired,
     onTitleClick: PropTypes.func,
