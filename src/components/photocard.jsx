@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LazyLoad from 'react-lazy-load';
 
 import './photocard.css';
 
@@ -13,9 +14,13 @@ const Photocard = ({
     return (
         <div className="photocard">
             <div className="photocard__picture-frame">
-                <img className="photocard__picture" src={ thumbnail } />
+                 <LazyLoad height={"100%"}> 
+                    <img className="photocard__picture" src={ thumbnail } />
+                 </LazyLoad> 
             </div>
-             Title: {title}
+            <div className="photocard__title-author">
+                {title}
+            </div>
         </div>
     );                    
 };
