@@ -71,12 +71,7 @@ https://www.npmjs.com/package/react-lazy-load
 
 Note I couldn't see anything useful in description so left it blank although code is in there ready
 
-
-TODO
-
-function scrolled(e) {
-  if (myDiv.offsetHeight + myDiv.scrollTop >= myDiv.scrollHeight) {
-    scrolledToBottom(e);
-  }
-}
+For infinite scroll, need to know when the end of a scroll is reached.
+Need a ref on a react dom node but Stateless function components cannot have refs, so
+convert carousel to stateful, reluctantly.
 
