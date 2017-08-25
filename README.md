@@ -69,6 +69,9 @@ http://www.thegreatcodeadventure.com/react-redux-tutorial-part-iii-async-redux/
 For lazy loading use this react library:
 https://www.npmjs.com/package/react-lazy-load
 
+Note I couldn't see anything useful in description so left it blank although code is in there ready
+
+
 TODO
 
 function scrolled(e) {
