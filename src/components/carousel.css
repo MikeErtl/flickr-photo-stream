@@ -17,3 +17,7 @@ html,body {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+.photos-carousel__h1 {
+    text-align: center;
+}
