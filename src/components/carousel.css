@@ -6,8 +6,9 @@ html,body {
 .photos-carousel {
     background-color: wheat;
     height: 65vh; /* see .photo-card height which is related in order to make the photo-card square-ish */
-     overflow: scroll; 
+    overflow: scroll; 
     white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
 }
 
 .photos-carousel__inner {

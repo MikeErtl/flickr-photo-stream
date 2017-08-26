@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 import { appendFeed } from '../actions/feedactions';
 import store from '../store/store';
+import debounce from '../utils/debounce';
 
 import Photocard from './photocard.jsx';
 
@@ -25,7 +26,13 @@ class Carousel extends React.Component {
     }
 
     listenScrollEvent(e) {
-        if ( e.target.scrollLeft >= (e.target.scrollWidth - e.target.clientWidth)) {
+        /*How close in pixels to end of scroll to cause an infinite reload */
+        const RELOAD_PIXS=600;
+
+        let scrollBuffer = (e.target.scrollWidth - e.target.clientWidth);
+        let currentScroll = e.target.scrollLeft;
+        if ((currentScroll > RELOAD_PIXS) && 
+            (currentScroll+RELOAD_PIXS) >= scrollBuffer){
             store.dispatch(appendFeed());
         }
     }
