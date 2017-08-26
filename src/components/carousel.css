@@ -5,9 +5,10 @@ html,body {
 /* Carousel height should be most but not all of screen so that user can peep more page stuff below */
 .photos-carousel {
     background-color: wheat;
-    height: 65vh; /* see .photo-card height which is related in order to make the photo-card square-ish */
-     overflow: scroll; 
+    height: 80vh; /* see .photo-card height which is related in order to make the photo-card square-ish */
+    overflow: scroll; 
     white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
 }
 
 .photos-carousel__inner {
