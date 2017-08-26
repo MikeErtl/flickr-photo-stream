@@ -3,6 +3,10 @@
 This is an app to designed to be developed quickly to display photos from the public Flickr API defined here: 
 https://www.flickr.com/services/feeds/docs/photos_public/
 
+It is served from an amazon s3 bucket here:
+
+http://cloud.flickr-photo-stream.com.s3-website.eu-west-2.amazonaws.com/
+
 This readme describes the development of the app.
 
 # Environment

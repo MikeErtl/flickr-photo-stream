@@ -17,7 +17,7 @@ const NavBar = () => {
         <Navbar inverse collapseOnSelect>
             <Navbar.Header>
             <Navbar.Brand>
-                <a href="">Flickr Photos Stream</a>
+                <a href="">Flickr Photo Stream</a>
             </Navbar.Brand>
             </Navbar.Header>
             <Navbar.Collapse>

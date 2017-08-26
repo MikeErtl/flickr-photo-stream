@@ -33,7 +33,7 @@ class Carousel extends React.Component {
     render() {
         return(
             <span>
-                <h1> Live Feed </h1> 
+                <h1 className="photos-carousel__h1">  </h1> 
                 <div className="photos-carousel" ref="carousel">
                     <div className="photos-carousel__inner"> 
                         {
