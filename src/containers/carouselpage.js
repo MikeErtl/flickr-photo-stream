@@ -5,10 +5,6 @@ import {connect} from 'react-redux';
 import Carousel from '../components/carousel.jsx';
 
 class CarouselPage extends React.Component {  
-    scrolledToEnd = () => {
-        console.log("Callback scrolled to end ");
-    }
-     
     render() {
         const photocards = this.props.photocards;
         return(

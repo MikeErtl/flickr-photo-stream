@@ -34,7 +34,6 @@ export function appendFeedSuccess(newPhotocards) {
         let unique = true;
         for (let i = 0; i< arr.length; i++){
             if (arr[i].id === item.id){
-                console.log("MATCH! " + item.id)
                 unique = false;
                 break;
             }

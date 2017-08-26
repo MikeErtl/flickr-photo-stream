@@ -7,7 +7,8 @@ class FlickrApi {
             const flickrFeedApi = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json';
             let flickrFeed = [];
 
-            let cancelRequest = jsonp(
+            // TODO: the value of jsonp returned is the cancel method, implement this
+            jsonp(
                 flickrFeedApi,
                 { name: 'jsonFlickrFeed' },
                 (err, json) => {

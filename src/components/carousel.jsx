@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import {connect} from 'react-redux';  
 
 import { appendFeed } from '../actions/feedactions';
 import store from '../store/store';
@@ -27,7 +26,6 @@ class Carousel extends React.Component {
 
     listenScrollEvent(e) {
         if ( e.target.scrollLeft >= (e.target.scrollWidth - e.target.clientWidth)) {
-            console.log("BANG!");
             store.dispatch(appendFeed());
         }
     }
@@ -65,9 +63,9 @@ Carousel.propTypes = {
         flickrAuthorUrl: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         tags: PropTypes.string.isRequired,
-    }).isRequired).isRequired.isRequired,
-    onTitleClick: PropTypes.func.isRequired,
-    onAuthorClick: PropTypes.func.isRequired
+    }).isRequired).isRequired,
+    onTitleClick: PropTypes.func,
+    onAuthorClick: PropTypes.func
 };
 
 export default Carousel;
