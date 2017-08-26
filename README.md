@@ -80,3 +80,16 @@ Note I couldn't see anything useful in description in the Flickr feed so left it
 For infinite scroll, I need to know when the end of a scroll is reached and trigger an action to get more data.
 To hook up with the scroll listener I need a ref on a react dom node but Stateless components cannot have refs, so
 I converted carousel.jsx to stateful component for this reason.
+I then added infinite scroll in such a way that the beginning is chopped as you move right, so there are
+never more than 100 items on screen
+
+# Ideas for improvement
+For lack of time the following ideas were not implemented. 
+
+1 - Implement scroll up down for mobile devices, and general look and feel tidy.
+
+2 - Add another carousel below containing favourites. When you like a picture click (+) and it appears in that row. This would be a good way of reusing the carousel component and putting a new array of data in the redux store.
+
+3 - Fiddle with lazy loading timings for mobile devices - needs to load more at once.
+
+
