@@ -2,7 +2,7 @@
 .photocard {
     border: 1px solid black;
     background-color: white;
-    height: 100%;
+    height: 90%;
     width: 50vh; /* See .photos-carousel height, this is a related value  */
     margin-right: 40px;
     overflow: hidden;
