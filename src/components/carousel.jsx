@@ -56,19 +56,18 @@ class Carousel extends React.Component {
 };
 
 Carousel.propTypes = {
-    photocards: PropTypes.arrayOf(PropTypes.shape({//TODO: make all required
+    photocards: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
-        thumbnail: PropTypes.string,
+        thumbnail: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        flickrPhotoUrl: PropTypes.string,
-        author: PropTypes.string,
-        flickrAuthorUrl: PropTypes.string,
-        description: PropTypes.string,
-        tags: PropTypes.string,
-    }).isRequired).isRequired,
-    onTitleClick: PropTypes.func,
-    onAuthorClick: PropTypes.func
-    //scrolledToEnd: PropTypes.func
+        flickrPhotoUrl: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
+        flickrAuthorUrl: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        tags: PropTypes.string.isRequired,
+    }).isRequired).isRequired.isRequired,
+    onTitleClick: PropTypes.func.isRequired,
+    onAuthorClick: PropTypes.func.isRequired
 };
 
 export default Carousel;

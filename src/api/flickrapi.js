@@ -31,7 +31,8 @@ class FlickrApi {
                                 author: author,
                                 flickrPhotoUrl: item.link,
                                 flickrAuthorUrl: authorUrl,
-                                description: description
+                                description: description,
+                                tags: item.tags
                             }
                         });
                         resolve(flickrFeed);

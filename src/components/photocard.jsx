@@ -30,19 +30,26 @@ const Photocard = ({
             <div className="photocard__description">
                 { description }
             </div>
+            { tags ? 
+            <div className="photocard__tags">
+                <span className="photocard__tags_title"> Tags: </span> 
+                { tags }
+            </div>
+            : null }
+            
         </div>
     );                    
 };
 
 Photocard.propTypes = {
     id: PropTypes.string.isRequired,
-    thumbnail: PropTypes.string,
+    thumbnail: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    flickrPhotoUrl: PropTypes.string,
-    author: PropTypes.string,
-    flickrAuthorUrl: PropTypes.string,
-    description: PropTypes.string,
-    tags: PropTypes.string,
+    flickrPhotoUrl: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    flickrAuthorUrl: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    tags: PropTypes.string.isRequired,
 };
 
 export default Photocard;
