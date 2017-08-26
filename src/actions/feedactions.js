@@ -24,27 +24,36 @@ export function appendFeed() {
     };
 }
 
-export function appendFeedSuccess(photocards) { 
-    let newLastItemId = photocards[photocards.length-1].id;
-    let oldLastItemId = store.getState().photocards[store.getState().photocards.length-1].id;
-    let combined;
-    
-    if (newLastItemId != oldLastItemId){
-        // Different set so combine them
-        combined = store.getState().photocards.concat(photocards);
-        if (combined.length > MAX_NUM_ITEMS_IN_FEED_DISPLAY) {
-            // Limit the feed on show
-            combined = combined.slice(0,100);
+export function appendFeedSuccess(newPhotocards) { 
+
+    let oldPhotocards = store.getState().photocards;
+    let combinedPhotocards;
+    let filteredNewPhotocards;
+
+    const isUnique = (item, arr) =>{
+        let unique = true;
+        for (let i = 0; i< arr.length; i++){
+            if (arr[i].id === item.id){
+                console.log("MATCH! " + item.id)
+                unique = false;
+                break;
+            }
         }
-    } else {
-        // Same stuff came back
-        console.log("SAME STUFF")
-        combined = photocards;
+        return unique;
+    };
+
+    const filterDuplicates = (photocard) => {
+        return isUnique(photocard, oldPhotocards)
+    };
+
+    filteredNewPhotocards = newPhotocards.filter(filterDuplicates);
+    combinedPhotocards = oldPhotocards.concat(filteredNewPhotocards);
+    // Keep size down to max limit
+    if (combinedPhotocards.length > MAX_NUM_ITEMS_IN_FEED_DISPLAY) {
+        combinedPhotocards = combinedPhotocards.slice(0, MAX_NUM_ITEMS_IN_FEED_DISPLAY);
     }
 
-    console.log("NEW SIZE=" + combined.length)
-    //console.log("appedFeedSuccess "); console.log(combined); 
-    return {type: types.APPEND_FEED_SUCCESS, photocards: combined};
+    return {type: types.APPEND_FEED_SUCCESS, photocards: combinedPhotocards};
 }
 
 export function loadFeedSuccess(photocards) { 
