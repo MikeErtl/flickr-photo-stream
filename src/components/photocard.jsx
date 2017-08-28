@@ -14,8 +14,14 @@ const Photocard = ({
     return (
         <div className="photocard">
             <div className="photocard__picture-frame">
-                 <LazyLoad height={"100%"}> 
-                    <img className="photocard__picture" src={ thumbnail } alt = "" />
+                 <LazyLoad 
+                    height={"100%"}
+                    offset={1500}
+                > 
+                    <img 
+                        className="photocard__picture" 
+                        src={ thumbnail } 
+                        alt = "" />
                  </LazyLoad> 
             </div>
             <div className="photocard__title-author">
