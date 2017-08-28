@@ -25,7 +25,6 @@ export function appendFeed() {
 }
 
 export function appendFeedSuccess(newPhotocards) { 
-
     let oldPhotocards = store.getState().photocards;
     let combinedPhotocards;
     let filteredNewPhotocards;
@@ -46,13 +45,17 @@ export function appendFeedSuccess(newPhotocards) {
     };
 
     filteredNewPhotocards = newPhotocards.filter(filterDuplicates);
-    combinedPhotocards = oldPhotocards.concat(filteredNewPhotocards);
-    // Keep size down to max limit
-    if (combinedPhotocards.length > MAX_NUM_ITEMS_IN_FEED_DISPLAY) {
-        combinedPhotocards = combinedPhotocards.slice(0, MAX_NUM_ITEMS_IN_FEED_DISPLAY);
-    }
 
-    return {type: types.APPEND_FEED_SUCCESS, photocards: combinedPhotocards};
+    combinedPhotocards = oldPhotocards.concat(filteredNewPhotocards);
+
+    // Keep size down to max limit
+    let newLength = combinedPhotocards.length;
+    if (newLength > MAX_NUM_ITEMS_IN_FEED_DISPLAY) {
+        let amountToCut = newLength - MAX_NUM_ITEMS_IN_FEED_DISPLAY;
+        let reducedPhotocards = combinedPhotocards.slice(amountToCut, MAX_NUM_ITEMS_IN_FEED_DISPLAY);
+        return { type: types.APPEND_FEED_SUCCESS, photocards: reducedPhotocards };
+    }
+    return { type: types.APPEND_FEED_SUCCESS, photocards: combinedPhotocards };
 }
 
 export function loadFeedSuccess(photocards) {     
