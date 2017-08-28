@@ -35,7 +35,6 @@ const Photocard = ({
             </div>
             { onSaveClick ? 
                 <div className="photocard__save"
-                    //onClick={ onSaveClick }
                     onClick={ ()=> onSaveClick({
                         id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, description, tags
                     }) }
@@ -47,7 +46,9 @@ const Photocard = ({
             }
             { onRemoveClick ? 
                 <div className="photocard__save"
-                    onClick={ onRemoveClick }
+                    onClick={ ()=> onRemoveClick({
+                        id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, description, tags
+                    }) }
                 >
                     Remove 
                 </div>

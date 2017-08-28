@@ -51,7 +51,7 @@ export function appendFeedSuccess(newPhotocards) {
     if (combinedPhotocards.length > MAX_NUM_ITEMS_IN_FEED_DISPLAY) {
         combinedPhotocards = combinedPhotocards.slice(0, MAX_NUM_ITEMS_IN_FEED_DISPLAY);
     }
-    console.log("MIKE append feed size=" + combinedPhotocards.length)
+    
     return {type: types.APPEND_FEED_SUCCESS, photocards: combinedPhotocards};
 }
 
@@ -63,4 +63,19 @@ export function addToSaved(photocard) {
     let savedPhotocards = store.getState().savedPhotocards.concat([photocard]);
 
     return {type: types.ADD_TO_SAVED, savedPhotocards: savedPhotocards};
+}
+
+export function removeFromSaved(photocard) { 
+    // The concat is to ensure a new array is returned
+    let savedPhotocards = store.getState().savedPhotocards.concat([]);
+    let i;
+
+    for (i=0; i<savedPhotocards.length; i++){
+        if (savedPhotocards[i].id === photocard.id) {
+            savedPhotocards.splice(i, 1);
+            break;
+        }
+    }
+
+    return {type: types.REMOVE_FROM_SAVED, savedPhotocards: savedPhotocards};
 }

@@ -7,14 +7,12 @@ import store from '../store/store';
 
 import Carousel from '../components/carousel.jsx';
 
-class CarouselLive extends React.Component {
-    
-
+class CarouselLive extends React.Component { 
     render() {
         const onSaveClick = (card)=> {
-            console.log("Clicked save, this="); console.log(card);
             store.dispatch(addToSaved(card));
         }
+
         const photocards = this.props.photocards;
         return(
             <Carousel 
@@ -22,7 +20,6 @@ class CarouselLive extends React.Component {
                 photocards={ photocards } 
                 scrolledToEnd={ this.scrolledToEnd }
                 onSaveClick={ onSaveClick }
-                
             />
         )
     }
