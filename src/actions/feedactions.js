@@ -51,7 +51,7 @@ export function appendFeedSuccess(newPhotocards) {
     if (combinedPhotocards.length > MAX_NUM_ITEMS_IN_FEED_DISPLAY) {
         combinedPhotocards = combinedPhotocards.slice(0, MAX_NUM_ITEMS_IN_FEED_DISPLAY);
     }
-    
+
     return {type: types.APPEND_FEED_SUCCESS, photocards: combinedPhotocards};
 }
 
@@ -60,9 +60,24 @@ export function loadFeedSuccess(photocards) {
 }
 
 export function addToSaved(photocard) { 
+    // Add to the saved array
     let savedPhotocards = store.getState().savedPhotocards.concat([photocard]);
 
-    return {type: types.ADD_TO_SAVED, savedPhotocards: savedPhotocards};
+    // remove the save link 
+    let photocards = store.getState().photocards.concat([]);
+    let i;
+    for (i=0; i < photocards.length; i++){
+        if (photocards[i].id === photocard.id) {
+            photocards[i].saved = true;
+            break;
+        }
+    }    
+
+    return {
+        type: types.ADD_TO_SAVED, 
+        savedPhotocards: savedPhotocards, 
+        photocards: photocards
+    };
 }
 
 export function removeFromSaved(photocard) { 
@@ -70,12 +85,25 @@ export function removeFromSaved(photocard) {
     let savedPhotocards = store.getState().savedPhotocards.concat([]);
     let i;
 
-    for (i=0; i<savedPhotocards.length; i++){
+    for (i=0; i < savedPhotocards.length; i++){
         if (savedPhotocards[i].id === photocard.id) {
             savedPhotocards.splice(i, 1);
             break;
         }
     }
 
-    return {type: types.REMOVE_FROM_SAVED, savedPhotocards: savedPhotocards};
+    // re-add  the save link   
+    let photocards = store.getState().photocards.concat([]);
+    for (i=0; i < photocards.length; i++){
+        if (photocards[i].id === photocard.id) {
+            photocards[i].saved = false;
+            break;
+        }
+    }
+
+    return {
+        type: types.REMOVE_FROM_SAVED, 
+        savedPhotocards: savedPhotocards,
+        photocards: photocards
+    };
 }

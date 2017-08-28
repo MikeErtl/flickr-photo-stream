@@ -10,7 +10,7 @@ import './photocard.css';
  *  description,  tags
  */
 const Photocard = ({ 
-    id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, description, tags, photoCardInfo, onSaveClick, onRemoveClick }) => {
+    id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, description, tags, saved, onSaveClick, onRemoveClick }) => {
     return (
         <div className="photocard">
             <div className="photocard__picture-frame">
@@ -33,10 +33,10 @@ const Photocard = ({
                     { author } 
                 </a>
             </div>
-            { onSaveClick ? 
+            { onSaveClick && (saved === false) ? 
                 <div className="photocard__save"
                     onClick={ ()=> onSaveClick({
-                        id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, description, tags
+                        id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, description, tags, saved
                     }) }
                 >
                     Save 
@@ -47,7 +47,7 @@ const Photocard = ({
             { onRemoveClick ? 
                 <div className="photocard__save"
                     onClick={ ()=> onRemoveClick({
-                        id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, description, tags
+                        id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, description, tags, saved
                     }) }
                 >
                     Remove 
@@ -80,7 +80,8 @@ Photocard.propTypes = {
     description: PropTypes.string.isRequired,
     tags: PropTypes.string.isRequired,
     onSaveClick: PropTypes.func,
-    onRemoveClick: PropTypes.func
+    onRemoveClick: PropTypes.func,
+    saved: PropTypes.bool.isRequired
 };
 
 export default Photocard;

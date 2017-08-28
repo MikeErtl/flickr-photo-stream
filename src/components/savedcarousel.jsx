@@ -50,6 +50,7 @@ SavedCarousel.propTypes = {
         flickrAuthorUrl: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         tags: PropTypes.string.isRequired,
+        saved: PropTypes.bool.isRequired
     }).isRequired).isRequired,
     
     title: PropTypes.string
