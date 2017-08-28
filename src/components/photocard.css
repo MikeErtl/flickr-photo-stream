@@ -62,3 +62,9 @@
     font-weight: bold;
     padding-right: 5px;
 }
+
+.photocard__save {
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}

@@ -53,6 +53,7 @@ https://www.thinkful.com/projects/react-bootstrap-456/
 ## 2) Add Simple Style Free List
 Add code to display a carousel of photo cards (picture and metadata)  
 
+## React Reducx
 Install react redux to manage state in a redux store. This is the preferred way to use React,
 in conjuction with Redux so that there is one master place for State. The components should therefore
 be stateless and get state by using 'connect' to access the store. 
@@ -61,35 +62,44 @@ This provider maps component properties with the state.
 See:
 https://github.com/reactjs/react-redux
 
+## JSONP
 The Flickr Api requires a JSONP implementation to get round cross origin issues.
 For this install jsonp. 
 See:
 https://www.npmjs.com/package/jsonp
 
+## Redux-Thunk
 For asynchronous redux actions (getting a feed) use thunk middleware. See
 https://www.npmjs.com/package/redux-thunk
 
 For description of its use see 
 http://www.thegreatcodeadventure.com/react-redux-tutorial-part-iii-async-redux/
 
+## Lazy Loading
 For lazy loading use this react library:
 https://www.npmjs.com/package/react-lazy-load
 
+I picked a preload value of 1500px so that on a phone you can scroll fast enough to see the lazyness.
+
+## Description?
 Note I couldn't see anything useful in description in the Flickr feed so left it blank although code is in there ready
 
+## Infinite Scroll
 For infinite scroll, I need to know when the end of a scroll is reached and trigger an action to get more data.
 To hook up with the scroll listener I need a ref on a react dom node but Stateless components cannot have refs, so
 I converted carousel.jsx to stateful component for this reason.
 I then added infinite scroll in such a way that the beginning is chopped as you move right, so there are
 never more than 100 items on screen
 
+## Simple Design
+I kept the scroll horizontal for mobile and desktop (unusual but allows two carousels on a phone). I used a
+fraction of the viewport hight to size the carousel height and individual photocard width. This ensures portrait
+phone shows largely one photocard and desktop shows the wireframe's approx 4. 
+
 # Ideas for improvement
 For lack of time the following ideas were not implemented. 
 
-1 - Implement scroll up down for mobile devices, and general look and feel tidy.
-
-2 - Add another carousel below containing favourites. When you like a picture click (+) and it appears in that row. This would be a good way of reusing the carousel component and putting a new array of data in the redux store.
-
-3 - Fiddle with lazy loading timings for mobile devices - needs to load more at once.
+Using redux offline, the saved items can be persisted using this tool: 
+https://www.npmjs.com/package/redux-offline
 
 

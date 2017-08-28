@@ -10,12 +10,18 @@ import './photocard.css';
  *  description,  tags
  */
 const Photocard = ({ 
-    id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, description, tags, photoCardInfo}) => {
+    id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, description, tags, saved, onSaveClick, onRemoveClick }) => {
     return (
         <div className="photocard">
             <div className="photocard__picture-frame">
-                 <LazyLoad height={"100%"}> 
-                    <img className="photocard__picture" src={ thumbnail } alt = "" />
+                 <LazyLoad 
+                    height={"100%"}
+                    offset={1500}
+                > 
+                    <img 
+                        className="photocard__picture" 
+                        src={ thumbnail } 
+                        alt = "" />
                  </LazyLoad> 
             </div>
             <div className="photocard__title-author">
@@ -27,16 +33,39 @@ const Photocard = ({
                     { author } 
                 </a>
             </div>
+            { onSaveClick && (saved === false) ? 
+                <div className="photocard__save"
+                    onClick={ ()=> onSaveClick({
+                        id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, description, tags, saved
+                    }) }
+                >
+                    Save 
+                </div>
+            :
+                null
+            }
+            { onRemoveClick ? 
+                <div className="photocard__save"
+                    onClick={ ()=> onRemoveClick({
+                        id, title, thumbnail, flickrPhotoUrl, author, flickrAuthorUrl, description, tags, saved
+                    }) }
+                >
+                    Remove 
+                </div>
+            :
+                null
+            }            
             <div className="photocard__description">
                 { description }
             </div>
             { tags ? 
-            <div className="photocard__tags">
-                <span className="photocard__tags_title"> Tags: </span> 
-                { tags }
-            </div>
-            : null }
-            
+                <div className="photocard__tags">
+                    <span className="photocard__tags_title"> Tags: </span> 
+                    { tags }
+                </div>
+            : 
+                null 
+            }            
         </div>
     );                    
 };
@@ -50,6 +79,9 @@ Photocard.propTypes = {
     flickrAuthorUrl: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     tags: PropTypes.string.isRequired,
+    onSaveClick: PropTypes.func,
+    onRemoveClick: PropTypes.func,
+    saved: PropTypes.bool.isRequired
 };
 
 export default Photocard;

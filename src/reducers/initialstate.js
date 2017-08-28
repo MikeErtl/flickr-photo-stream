@@ -1,3 +1,4 @@
 export default {  
-  photocards: [ ]
+  photocards: [ ],
+  savedPhotocards: [ ]
 }

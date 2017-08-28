@@ -33,7 +33,8 @@ class FlickrApi {
                                 flickrPhotoUrl: item.link,
                                 flickrAuthorUrl: authorUrl,
                                 description: description,
-                                tags: item.tags
+                                tags: item.tags,
+                                saved: false
                             }
                         });
                         resolve(flickrFeed);
