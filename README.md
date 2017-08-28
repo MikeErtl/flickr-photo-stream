@@ -99,7 +99,7 @@ phone shows largely one photocard and desktop shows the wireframe's approx 4.
 # Ideas for improvement
 For lack of time the following ideas were not implemented. 
 
-- Add another carousel below containing favourites. When you like a picture click (+) and it appears in that row. This would be a good way of reusing the carousel component and putting a new array of data in the redux store.
-
+Using redux offline, the saved items can be persisted using this tool: 
+https://www.npmjs.com/package/redux-offline
 
 

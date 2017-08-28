@@ -13,3 +13,4 @@ export default function photocards(state = initialState.photocards, action) {
             return state;
   }
 }
+

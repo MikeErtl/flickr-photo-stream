@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import photocards from './photocards';
+import savedPhotocards from './savedphotocards';
 
 const rootReducer = combineReducers({
-  photocards // nothing to combine yet... 
+  photocards,
+  savedPhotocards 
 })
 
 export default rootReducer

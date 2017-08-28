@@ -51,10 +51,16 @@ export function appendFeedSuccess(newPhotocards) {
     if (combinedPhotocards.length > MAX_NUM_ITEMS_IN_FEED_DISPLAY) {
         combinedPhotocards = combinedPhotocards.slice(0, MAX_NUM_ITEMS_IN_FEED_DISPLAY);
     }
-
+    console.log("MIKE append feed size=" + combinedPhotocards.length)
     return {type: types.APPEND_FEED_SUCCESS, photocards: combinedPhotocards};
 }
 
-export function loadFeedSuccess(photocards) { 
+export function loadFeedSuccess(photocards) {     
     return {type: types.LOAD_FEED_SUCCESS, photocards: photocards};
+}
+
+export function addToSaved(photocard) { 
+    let savedPhotocards = store.getState().savedPhotocards.concat([photocard]);
+
+    return {type: types.ADD_TO_SAVED, savedPhotocards: savedPhotocards};
 }

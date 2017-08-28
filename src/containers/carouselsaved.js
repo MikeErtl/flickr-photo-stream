@@ -4,24 +4,29 @@ import {connect} from 'react-redux';
 
 import Carousel from '../components/carousel.jsx';
 
-class CarouselPage extends React.Component {  
+class CarouselSaved extends React.Component {  
     render() {
+        const onRemoveClick = ()=> {
+            console.log("Clicked remove")
+        }
+        
         const photocards = this.props.photocards;
         return(
             <Carousel 
+                title= "Saved Photos"
                 photocards={ photocards } 
-                scrolledToEnd={ this.scrolledToEnd }
+                onRemoveClick={onRemoveClick }
             />
         )
     }
 }
 
 function mapStateToProps(state, ownProps) {
-        return { photocards: state.photocards }
+        return { photocards: state.savedPhotocards }
 } 
 
-CarouselPage.propTypes = {  
+CarouselSaved.propTypes = {  
     photocards: PropTypes.array.isRequired
 };
 
-export default connect(mapStateToProps)(CarouselPage);  
+export default connect(mapStateToProps)(CarouselSaved);  
