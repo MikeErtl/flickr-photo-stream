@@ -1,13 +1,13 @@
 # Flickr Photo Stream
 
-This is an app to designed to be developed quickly to display photos from the public Flickr API defined here: 
-https://www.flickr.com/services/feeds/docs/photos_public/
-
-It is served from an amazon s3 bucket here:
+This is a web app written in React to display photos from the public Flickr API.
+It can be run here:
 
 http://cloud.flickr-photo-stream.com.s3-website.eu-west-2.amazonaws.com/
 
-This readme describes the development of the app.
+The public Flickr API used is this:
+
+https://www.flickr.com/services/feeds/docs/photos_public/
 
 # Environment
 
@@ -20,12 +20,16 @@ was renamed `create-react-app.md`
 
 # Instructions
 
-## Run the development env with
-`npm start`
-Point to http://localhost:3000
+## Development Run 
+Run with 
+
+```npm start```
+
+and point browser to http://localhost:3000
 
 
 # Code
+
 Used lowercase for filenames (I have not renamed all from the boilerplate original) as this makes it compatible with 
 all operating systems and removes git problems when cases are changed etc.
 
@@ -37,52 +41,63 @@ at least not in the logged out (no ID) public access mode.
 
 Lazy loading was used for browser speed.
 
-Responsive works on all devices.
+The simple design is responsive from mobile to desktop designed to keep photocards large on screen.
 
-Straight CSS was used as the app is small but using BEM (Block Element Modifier) methodology to improve structure of CSS,
+Straight CSS was used but using BEM (Block Element Modifier) methodology to improve structure of CSS,
 in the format B__E_M. 
   
 
 # Development
+The development followed these steps in design:
 
-## 1) Add Botstrap
+## Add Botstrap
 React Bootstrap Installation: 
-Use a React Bootstrap project for the navbar described here:
+Used a React Bootstrap project for the navbar described here:
+
 https://www.thinkful.com/projects/react-bootstrap-456/
 
-## 2) Add Simple Style Free List
+## Add Carousel 
 Add code to display a carousel of photo cards (picture and metadata)  
 
-## React Reducx
+## React Redux
 Install react redux to manage state in a redux store. This is the preferred way to use React,
-in conjuction with Redux so that there is one master place for State. The components should therefore
+in conjuction with Redux so that there is one master place for State. The components should 
 be stateless and get state by using 'connect' to access the store. 
-All components in the app are connected to the store since <App> is wrapped in a <Provider>.
-This provider maps component properties with the state.
-See:
+All components in the app are connected to the store since `<App>` is wrapped in a `<Provider>`.
+This provider maps component properties with the state. See:
+
 https://github.com/reactjs/react-redux
 
 ## JSONP
 The Flickr Api requires a JSONP implementation to get round cross origin issues.
 For this install jsonp. 
 See:
+
 https://www.npmjs.com/package/jsonp
 
 ## Redux-Thunk
-For asynchronous redux actions (getting a feed) use thunk middleware. See
+For asynchronous redux actions (getting the flickr feed) use thunk middleware. See
+
 https://www.npmjs.com/package/redux-thunk
 
 For description of its use see 
+
 http://www.thegreatcodeadventure.com/react-redux-tutorial-part-iii-async-redux/
 
 ## Lazy Loading
 For lazy loading use this react library:
+
 https://www.npmjs.com/package/react-lazy-load
 
 I picked a preload value of 1500px so that on a phone you can scroll fast enough to see the lazyness.
 
 ## Description?
 Note I couldn't see anything useful in description in the Flickr feed so left it blank although code is in there ready
+
+## Carousel Design
+I kept the scroll horizontal for mobile and desktop. I used a
+fraction of the viewport hight to size the carousel height and individual photocard width. This ensures portrait
+phone shows largely one photocard and desktop shows the wireframe's approx 4. 
 
 ## Infinite Scroll
 For infinite scroll, I need to know when the end of a scroll is reached and trigger an action to get more data.
@@ -91,15 +106,17 @@ I converted carousel.jsx to stateful component for this reason.
 I then added infinite scroll in such a way that the beginning is chopped as you move right, so there are
 never more than 100 items on screen
 
-## Simple Design
-I kept the scroll horizontal for mobile and desktop (unusual but allows two carousels on a phone). I used a
-fraction of the viewport hight to size the carousel height and individual photocard width. This ensures portrait
-phone shows largely one photocard and desktop shows the wireframe's approx 4. 
+## Add Saved Photocards
+Added another Carousel to save pictures. This also demonstrates the case where one action can affect both
+carousels - clicking save adds an item to the saved carousel and removes the Save button from the live
+carousel. 
 
 # Ideas for improvement
 For lack of time the following ideas were not implemented. 
 
-Using redux offline, the saved items can be persisted using this tool: 
+- Using redux offline, the saved items can be persisted using this tool: 
 https://www.npmjs.com/package/redux-offline
+
+- Implement a search, making use of the Navbar.
 
 
